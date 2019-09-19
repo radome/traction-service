@@ -51,7 +51,7 @@ module Messages
     end
 
     def declare_queue
-      @queue = @channel.queue(bunny_config.queue_name, durable: true)
+      @queue = @channel.queue(bunny_config.queue_name, durable: true, arguments: bunny_config.arguments || {})
     end
 
     def bind_queue
